@@ -1,0 +1,59 @@
+body{
+  height: 1010px;
+}
+body,
+html,
+.page,
+.main {
+  height: 100%;
+  min-width: 1220px;
+  overflow-x: auto;
+  position: relative;
+  background: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  cursor: pointer;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.bg-white {
+  background: #fff;
+}
+.main {
+  position: relative;
+}
+.tool-cont .tool-cont-main {
+  padding: 20px;
+}
+.tool-cont .tc-panel,
+.tool-cont .tc-15-msg,
+.tool-cont .tc-15-page,
+.tool-cont .tc-15-table-panel {
+  max-width: none;
+}
+.tool-cont .tc-panel,
+.tool-cont .tc-15-table-panel {
+  border: 1px solid #ddd;
+}
+.tool-cont .tc-15-table-panel .tc-15-table-fixed-body {
+  border-bottom: 0;
+}
+.tc-15-table-panel .tc-15-table-fixed-body {
+  overflow: visible;
+}
+.tc-15-table-panel {
+  overflow: auto;
+}
+.tc-15-table-fixed-head {
+  border-bottom: 0;
+}
+.tc-15-table-panel .tc-15-table-box {
+  border-bottom: 1px solid #ddd;
+}
