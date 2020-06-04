@@ -15,6 +15,8 @@ module.exports = {
     chunkFilename: '[name].[id].js'
   },
   module: {
+
+    noParse: /lodash/,
     rules: [
       {
         test: /\.vue$/,
@@ -35,7 +37,8 @@ module.exports = {
         }, {
           loader: 'babel-loader',
           options: {
-            presets: ["@babel/env"]
+            presets: ["@babel/env"],
+            cacheDirectory: true
           }
         }],
         enforce: 'pre', // loader前置
@@ -74,7 +77,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.json', '.vue'],  // 引入依赖时可以省略后缀
+    extensions: ['*', '.js', '.json', '.vue'],  // 引入依赖时可以省略后缀。将频率最高的后缀放在第一位，并且控制列表的长度，以减少尝试次数
     alias: { 'vue$': 'vue/dist/vue.esm.js' }
   },
   plugins: [
@@ -93,5 +96,8 @@ module.exports = {
       }]
     }),
   ],
-  target: 'web'
+  // externals: {
+  //   'lodash': 'lodash'
+  // },
+  target: 'web',
 }

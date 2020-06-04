@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     add() {
+      console.log(this._.indexOf([1, 2, 1, 2], 2))
       this.number = this.number + 2;
     }
   }

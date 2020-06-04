@@ -2,7 +2,9 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack')
 const baseConfig = require('./webpack.common.js');
-module.exports = merge(baseConfig, {
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin()
+const config = merge(baseConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   module: {
@@ -39,4 +41,5 @@ module.exports = merge(baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
-})
+});
+module.exports = smp.wrap(config);

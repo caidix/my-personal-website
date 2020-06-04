@@ -5,7 +5,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const TerserPlugin = require('terser-webpack-plugin');
 const baseConfig = require('./webpack.common.js');
-module.exports = merge(baseConfig, {
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+const config = merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
   module: {
@@ -89,3 +91,5 @@ module.exports = merge(baseConfig, {
     new CleanWebpackPlugin()
   ]
 });
+
+module.exports = smp.wrap(config);
